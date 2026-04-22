@@ -1,0 +1,14 @@
+docker network inspect my_network --format '{{range .Containers}}{{.Name}} -> {{end}}'
+
+
+docker exec nginx_container ping -c 2 app_container
+
+
+
+nc -zv localhost 8000
+nc -zv localhost 80
+
+
+docker exec nginx_container wget -qO- -T 3 http://app_container:8000/docs 2>&1 | head -3
+
+wget -qO- -T 3 http://localhost:8000/docs 2>&1

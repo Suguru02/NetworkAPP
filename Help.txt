@@ -1,0 +1,33 @@
+docker build -t task4-app .
+
+docker network create task4-network
+
+docker run -d \
+  --name task4-db \
+  --network task4-network \
+  -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgres123 \
+  -e POSTGRES_DB=task4db \
+  -p 5432:5432 \
+  postgres:15-alpine
+
+
+
+docker run -d \
+  --name task4-app \
+  --network task4-network \
+  -e DATABASE_URL=postgresql://postgres:postgres123@task4-db:5432/task4db \
+  -e DB_HOST=task4-db \
+  -e DB_PORT=5432 \
+  -e DB_USER=postgres \
+  -e DB_PASSWORD=postgres123 \
+  -e DB_NAME=task4db \
+  -p 8000:8000 \
+  task4-app
+
+
+docker logs task4-app
+
+curl http://localhost:8000
+
+docker exec task4-app ping -c 3 task4-db
