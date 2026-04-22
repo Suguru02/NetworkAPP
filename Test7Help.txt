@@ -1,4 +1,0 @@
-curl -H "X-Real-IP: 8.8.8.8" http://localhost/docs | head -5
-
-
-curl -H "X-Real-IP: 213.159.79.61" http://localhost/docs -v 2>&1
