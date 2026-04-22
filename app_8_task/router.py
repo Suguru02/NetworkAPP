@@ -1,7 +1,7 @@
 from fastapi import APIRouter
-from dao import HabrDao
-from schemas import SHabr
-from parser import parse
+from app.dao import HabrDao
+from app.schemas import SHabr
+from app.parser import parse
 
 
 router = APIRouter(prefix='/habr', tags=['Habr'])

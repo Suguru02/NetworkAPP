@@ -4,8 +4,8 @@ import asyncio
 from sqlalchemy.engine import Connection
 from alembic import context
 
-from database import DB_URL, async_engine
-from model import Base
+from app.database import DB_URL, async_engine
+from app.model import Base
 
 
 # Настройка логирования
