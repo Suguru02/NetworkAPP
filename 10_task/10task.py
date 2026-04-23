@@ -1,7 +1,5 @@
-#!/usr/bin/env python3
 import subprocess
 import csv
-import sys
 
 DOMAINS = ["google.com", "github.com", "ya.ru"]
 OUTPUT_CSV = "dns_traceroute.csv"
