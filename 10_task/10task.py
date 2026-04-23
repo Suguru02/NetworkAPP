@@ -27,10 +27,6 @@ def run_traceroute(ip):
             capture_output=True, text=True, timeout=30
         )
         return res.stdout.strip().replace("\n", " | ")
-    except subprocess.TimeoutExpired:
-        return "TRACEROUTE_TIMEOUT"
-    except FileNotFoundError:
-        return "ERROR: traceroute not installed"
     except Exception as e:
         return f"ERROR: {e}"
 
