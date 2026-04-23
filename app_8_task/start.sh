@@ -12,13 +12,15 @@ docker run -d \
   -e POSTGRES_DB=kompsetidb \
   postgres:15
 
+sleep 10
+
 docker run -d \
   --name app_container \
   --network my_network \
   --env-file .env \
   my_app
 
-sleep 5
+sleep 15
 
 docker run -d \
   --name nginx_container \
